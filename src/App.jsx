@@ -59,18 +59,6 @@ export default function App() {
         </a>
       </footer>
 
-      <button
-        onClick={handleCopyLink}
-        style={{
-          background: 'none', border: 'none', cursor: 'pointer',
-          fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase',
-          color: '#71717A', fontFamily: 'var(--font-body)',
-          marginTop: '1rem', marginBottom: '2rem',
-        }}
-      >
-        Copy Link
-      </button>
-
       <Toast message={toastMessage} />
     </div>
   );
