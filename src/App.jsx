@@ -7,6 +7,8 @@ import ShareModal from './components/ShareModal';
 import PreSaveSuccessModal from './components/PreSaveSuccessModal';
 import Toast from './components/Toast';
 import { SONG_DATA } from './data/songData';
+import stillImg from './assets/still.jpg';
+import stickerImg from './assets/fridae-sticker.jpg';
 
 export default function App() {
   const [isShareOpen, setIsShareOpen] = useState(false);
@@ -14,9 +16,6 @@ export default function App() {
   const [toastMessage, setToastMessage] = useState('');
 
   const popupTimerRef = useRef(null);
-
-  const isGithub = typeof window !== 'undefined' && window.location.hostname.includes('github.io');
-  const basePath = isGithub ? '/fridae-presave/' : '/';
 
   const showToast = (msg) => {
     setToastMessage(msg);
@@ -131,7 +130,7 @@ export default function App() {
       {/* Footer: Still Banner First, Sticker Image at Bottom */}
       <footer className="app-footer">
         <img 
-          src={`${basePath}assets/still.jpg`} 
+          src={stillImg} 
           alt="April Fridae Still" 
           className="full-width-footer-banner" 
         />
@@ -143,7 +142,7 @@ export default function App() {
           title="April Fridae Instagram"
         >
           <img 
-            src={`${basePath}assets/fridae-sticker.jpg`} 
+            src={stickerImg} 
             alt="April Fridae Instagram" 
             className="footer-sticker-img" 
           />

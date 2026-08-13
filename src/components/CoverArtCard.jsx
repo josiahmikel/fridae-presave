@@ -1,14 +1,13 @@
 import React from 'react';
+import animatedCover from '../assets/animated-cover.mp4';
+import stillImg from '../assets/still.jpg';
 
 export default function CoverArtCard() {
-  const isGithub = typeof window !== 'undefined' && window.location.hostname.includes('github.io');
-  const basePath = isGithub ? '/fridae-presave/' : '/';
-
   return (
     <div className="cover-art-container">
       <video 
-        src={`${basePath}assets/animated-cover.mp4`} 
-        poster={`${basePath}assets/still.jpg`}
+        src={animatedCover} 
+        poster={stillImg}
         autoPlay 
         loop 
         muted 
