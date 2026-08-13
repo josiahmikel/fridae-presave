@@ -2,15 +2,18 @@ import React from 'react';
 import ServiceIcon from './ServiceIcons';
 import { SONG_DATA } from '../data/songData';
 
-export default function ServiceList({ onServiceClick }) {
+const PRESAVE_URL = 'https://too.fm/eo9oxo0';
+
+export default function ServiceList() {
   return (
     <div className="services-container" style={{ paddingTop: '1rem' }}>
       {SONG_DATA.services.map((service) => (
-        <button
+        <a
           key={service.id}
+          href={PRESAVE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="service-row"
-          onClick={(e) => onServiceClick(service, e)}
-          style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0 }}
         >
           <div className="service-logo-wrap">
             <ServiceIcon id={service.id} size={22} color="#000000" />
@@ -19,7 +22,7 @@ export default function ServiceList({ onServiceClick }) {
           <div className="service-cta-btn">
             <span>{service.cta}</span>
           </div>
-        </button>
+        </a>
       ))}
     </div>
   );
