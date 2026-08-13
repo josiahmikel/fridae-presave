@@ -5,7 +5,7 @@ export default function CoverArtCard() {
   return (
     <div className="cover-art-container">
       <video 
-        src="/assets/animated-cover.mp4" 
+        src="./assets/animated-cover.mp4" 
         autoPlay 
         loop 
         muted 
