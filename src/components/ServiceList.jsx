@@ -1,29 +1,34 @@
 import React from 'react';
-import ServiceIcon from './ServiceIcons';
-import { SONG_DATA } from '../data/songData';
 
 const PRESAVE_URL = 'https://too.fm/eo9oxo0';
 
 export default function ServiceList() {
   return (
-    <div className="services-container" style={{ paddingTop: '1rem' }}>
-      {SONG_DATA.services.map((service) => (
-        <a
-          key={service.id}
-          href={PRESAVE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="service-row"
-        >
-          <div className="service-logo-wrap">
-            <ServiceIcon id={service.id} size={22} color="#000000" />
-            <span className="service-title-text">{service.name}</span>
-          </div>
-          <div className="service-cta-btn">
-            <span>{service.cta}</span>
-          </div>
-        </a>
-      ))}
+    <div style={{ padding: '1.5rem 1.5rem 2rem 1.5rem', width: '100%' }}>
+      <a
+        href={PRESAVE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'block',
+          width: '100%',
+          padding: '1rem',
+          background: '#000000',
+          color: '#ffffff',
+          textAlign: 'center',
+          textDecoration: 'none',
+          fontFamily: 'var(--font-heading)',
+          fontSize: '0.85rem',
+          fontWeight: 700,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          transition: 'background 0.15s ease',
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = '#333'}
+        onMouseLeave={e => e.currentTarget.style.background = '#000'}
+      >
+        Pre Save
+      </a>
     </div>
   );
 }
