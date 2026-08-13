@@ -1,11 +1,11 @@
 import React from 'react';
-import { SONG_DATA } from '../data/songData';
+import videoSrc from '../../public/assets/animated-cover.mp4';
 
 export default function CoverArtCard() {
   return (
     <div className="cover-art-container">
       <video 
-        src="./assets/animated-cover.mp4" 
+        src={videoSrc} 
         autoPlay 
         loop 
         muted 
