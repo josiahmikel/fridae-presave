@@ -128,7 +128,7 @@ export default function App() {
       {/* Footer: Still Banner First, Sticker Image at Bottom */}
       <footer className="app-footer">
         <img 
-          src="assets/still.jpg" 
+          src="https://josiahmikel.github.io/fridae-presave/assets/still.jpg" 
           alt="April Fridae Still" 
           className="full-width-footer-banner" 
         />
@@ -140,7 +140,7 @@ export default function App() {
           title="April Fridae Instagram"
         >
           <img 
-            src="assets/fridae-sticker.jpg" 
+            src="https://josiahmikel.github.io/fridae-presave/assets/fridae-sticker.jpg" 
             alt="April Fridae Instagram" 
             className="footer-sticker-img" 
           />
