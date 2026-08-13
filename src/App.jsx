@@ -1,62 +1,33 @@
-import React, { useState, useEffect, useRef } from 'react';
-import confetti from 'canvas-confetti';
+import React, { useState } from 'react';
 import CoverArtCard from './components/CoverArtCard';
 import CountdownTimer from './components/CountdownTimer';
 import ServiceList from './components/ServiceList';
-import ShareModal from './components/ShareModal';
-import PreSaveSuccessModal from './components/PreSaveSuccessModal';
 import Toast from './components/Toast';
 import { SONG_DATA } from './data/songData';
 import stillImg from './assets/still.jpg';
 import stickerImg from './assets/fridae-sticker.jpg';
 
+// The Feature.fm pre-save hub for this release
+const PRESAVE_URL = 'https://too.fm/eo9oxo0';
+
 export default function App() {
-  const [isShareOpen, setIsShareOpen] = useState(false);
-  const [activeSuccessService, setActiveSuccessService] = useState(null);
+  const [iframeOpen, setIframeOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
-  const popupTimerRef = useRef(null);
 
   const showToast = (msg) => {
     setToastMessage(msg);
-    setTimeout(() => setToastMessage(''), 3500);
+    setTimeout(() => setToastMessage(''), 3000);
   };
 
-  const triggerSuccessConfirmation = (service) => {
-    confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
-    setActiveSuccessService(service);
-  };
-
-  const handleServiceClick = (service, e, targetUrl) => {
-    // Just open the real pre-save URL directly — Feature.fm handles everything.
-    // No popup polling, no fake success triggers.
-    // The success modal is shown only via the postMessage from Feature.fm's callback.
+  const handleServiceClick = (service, e) => {
     e.preventDefault();
-    window.open(targetUrl, '_blank', 'noopener,noreferrer');
-    showToast(`Opening ${service.name}…`);
+    setIframeOpen(true);
   };
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText('https://too.fm/eo9oxo0');
+    navigator.clipboard.writeText('https://now.aprilfridae.com');
     showToast('Link copied!');
-    setIsShareOpen(false);
   };
-
-  // Listen for a postMessage from Feature.fm's callback page confirming the pre-save
-  useEffect(() => {
-    const handleMessage = (event) => {
-      if (
-        event.data &&
-        (event.data.type === 'PRE_SAVE_COMPLETE' || event.data.action === 'complete')
-      ) {
-        const serviceName = event.data.service || 'your streaming service';
-        const matchedService =
-          SONG_DATA.services.find((s) => s.id === event.data.service) || SONG_DATA.services[0];
-        triggerSuccessConfirmation(matchedService);
-      }
-    };
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
 
   return (
     <div className="app-container" style={{ paddingTop: '2.5rem' }}>
@@ -99,20 +70,96 @@ export default function App() {
         </a>
       </footer>
 
-      <ShareModal
-        isOpen={isShareOpen}
-        onClose={() => setIsShareOpen(false)}
-        onCopyLink={handleCopyLink}
-      />
-
-      <PreSaveSuccessModal
-        isOpen={!!activeSuccessService}
-        service={activeSuccessService}
-        onClose={() => setActiveSuccessService(null)}
-        onShare={() => setIsShareOpen(true)}
-      />
+      {/* Share button */}
+      <button
+        onClick={handleCopyLink}
+        style={{
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          fontSize: '0.75rem',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          color: '#71717A',
+          fontFamily: 'var(--font-body)',
+          marginTop: '1rem',
+          marginBottom: '2rem',
+        }}
+      >
+        Copy Link
+      </button>
 
       <Toast message={toastMessage} />
+
+      {/* Full-screen iframe overlay */}
+      {iframeOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            background: '#fff',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          {/* Close bar */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '0.75rem 1.25rem',
+              borderBottom: '1px solid #E4E4E7',
+              background: '#fff',
+              flexShrink: 0,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                color: '#000',
+              }}
+            >
+              Select a service to pre-save
+            </span>
+            <button
+              onClick={() => setIframeOpen(false)}
+              style={{
+                background: '#000',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '0',
+                padding: '0.35rem 0.85rem',
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                cursor: 'pointer',
+              }}
+            >
+              ✕ Close
+            </button>
+          </div>
+
+          {/* The iframe */}
+          <iframe
+            src={PRESAVE_URL}
+            title="Pre-Save Right Now — April Fridae"
+            style={{
+              flex: 1,
+              width: '100%',
+              border: 'none',
+            }}
+            allow="fullscreen"
+          />
+        </div>
+      )}
     </div>
   );
 }
