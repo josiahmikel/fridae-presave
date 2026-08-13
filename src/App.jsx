@@ -7,6 +7,7 @@ import ShareModal from './components/ShareModal';
 import PreSaveSuccessModal from './components/PreSaveSuccessModal';
 import Toast from './components/Toast';
 import { SONG_DATA } from './data/songData';
+import { getAssetUrl } from './utils/assetUrl';
 
 export default function App() {
   const [isShareOpen, setIsShareOpen] = useState(false);
@@ -128,7 +129,7 @@ export default function App() {
       {/* Footer: Still Banner First, Sticker Image at Bottom */}
       <footer className="app-footer">
         <img 
-          src="https://josiahmikel.github.io/fridae-presave/assets/still.jpg" 
+          src={getAssetUrl('assets/still.jpg')} 
           alt="April Fridae Still" 
           className="full-width-footer-banner" 
         />
@@ -140,7 +141,7 @@ export default function App() {
           title="April Fridae Instagram"
         >
           <img 
-            src="https://josiahmikel.github.io/fridae-presave/assets/fridae-sticker.jpg" 
+            src={getAssetUrl('assets/fridae-sticker.jpg')} 
             alt="April Fridae Instagram" 
             className="footer-sticker-img" 
           />

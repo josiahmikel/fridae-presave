@@ -1,11 +1,12 @@
 import React from 'react';
+import { getAssetUrl } from '../utils/assetUrl';
 
 export default function CoverArtCard() {
   return (
     <div className="cover-art-container">
       <video 
-        src="https://josiahmikel.github.io/fridae-presave/assets/animated-cover.mp4" 
-        poster="https://josiahmikel.github.io/fridae-presave/assets/still.jpg"
+        src={getAssetUrl('assets/animated-cover.mp4')} 
+        poster={getAssetUrl('assets/still.jpg')}
         autoPlay 
         loop 
         muted 
