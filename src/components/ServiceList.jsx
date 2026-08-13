@@ -11,13 +11,13 @@ export default function ServiceList() {
         rel="noopener noreferrer"
         style={{
           display: 'inline-block',
-          padding: '0.75rem 2.5rem',
+          padding: '0.9rem 3.5rem',
           background: '#000000',
           color: '#ffffff',
           textAlign: 'center',
           textDecoration: 'none',
           fontFamily: 'var(--font-heading)',
-          fontSize: '0.75rem',
+          fontSize: '0.85rem',
           fontWeight: 700,
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
