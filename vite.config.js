@@ -6,10 +6,18 @@ export default defineConfig({
   base: './',
   server: {
     port: 3000,
-    host: '127.0.0.1'
+    open: '/index.dev.html',
   },
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    rollupOptions: {
+      input: 'index.dev.html',
+      output: {
+        entryFileNames: 'assets/app.js',
+        chunkFileNames: 'assets/app-chunk.js',
+        assetFileNames: 'assets/[name][extname]',
+      }
+    }
   }
 });

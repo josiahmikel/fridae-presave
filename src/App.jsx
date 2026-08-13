@@ -35,6 +35,28 @@ export default function App() {
         <ServiceList />
       </main>
 
+      <a
+        href="https://forms.gle/mTULuhfHLPMHjNoW8"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'block',
+          width: '100%',
+          textAlign: 'center',
+          fontFamily: 'var(--font-body)',
+          fontSize: '0.72rem',
+          fontWeight: 600,
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+          color: '#A1A1AA',
+          textDecoration: 'underline',
+          textUnderlineOffset: '3px',
+          padding: '2.5rem 0 1.5rem 0',
+        }}
+      >
+        get a free zine
+      </a>
+
       <footer className="app-footer">
         <img
           src={stillImg}
