@@ -5,15 +5,15 @@ import stillImg from '../assets/still.jpg';
 export default function CoverArtCard() {
   return (
     <div className="cover-art-container">
-      <video 
-        src={animatedCover} 
+      <video
+        src={animatedCover}
         poster={stillImg}
-        autoPlay 
-        loop 
-        muted 
+        autoPlay
+        loop
+        muted
         playsInline
+        preload="auto"
         className="cover-art-image"
-        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
       />
     </div>
   );
