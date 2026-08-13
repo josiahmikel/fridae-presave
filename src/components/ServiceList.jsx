@@ -11,7 +11,7 @@ export default function ServiceList() {
         rel="noopener noreferrer"
         style={{
           display: 'inline-block',
-          padding: '0.55rem 1.75rem',
+          padding: '0.75rem 2.5rem',
           background: '#000000',
           color: '#ffffff',
           textAlign: 'center',
