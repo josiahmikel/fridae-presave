@@ -8,9 +8,6 @@ import PreSaveSuccessModal from './components/PreSaveSuccessModal';
 import Toast from './components/Toast';
 import { SONG_DATA } from './data/songData';
 
-import stillImg from '../public/assets/still.jpg';
-import stickerImg from '../public/assets/fridae-sticker.jpg';
-
 export default function App() {
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [activeSuccessService, setActiveSuccessService] = useState(null);
@@ -131,7 +128,7 @@ export default function App() {
       {/* Footer: Still Banner First, Sticker Image at Bottom */}
       <footer className="app-footer">
         <img 
-          src={stillImg} 
+          src="assets/still.jpg" 
           alt="April Fridae Still" 
           className="full-width-footer-banner" 
         />
@@ -143,7 +140,7 @@ export default function App() {
           title="April Fridae Instagram"
         >
           <img 
-            src={stickerImg} 
+            src="assets/fridae-sticker.jpg" 
             alt="April Fridae Instagram" 
             className="footer-sticker-img" 
           />
