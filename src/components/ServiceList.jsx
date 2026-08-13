@@ -6,13 +6,11 @@ export default function ServiceList({ onServiceClick }) {
   return (
     <div className="services-container" style={{ paddingTop: '1rem' }}>
       {SONG_DATA.services.map((service) => (
-        <a
+        <button
           key={service.id}
-          href={service.url}
-          target="_blank"
-          rel="noopener noreferrer"
           className="service-row"
-          onClick={(e) => onServiceClick(service, e, service.url)}
+          onClick={(e) => onServiceClick(service, e)}
+          style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', padding: 0 }}
         >
           <div className="service-logo-wrap">
             <ServiceIcon id={service.id} size={22} color="#000000" />
@@ -21,7 +19,7 @@ export default function ServiceList({ onServiceClick }) {
           <div className="service-cta-btn">
             <span>{service.cta}</span>
           </div>
-        </a>
+        </button>
       ))}
     </div>
   );
