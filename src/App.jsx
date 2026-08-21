@@ -32,11 +32,11 @@ export default function App() {
       </main>
 
       {/* Zine section */}
-      <div style={{ width: '100%', maxWidth: '440px', textAlign: 'center', padding: '2.5rem 1.5rem 0 1.5rem' }}>
+      <div style={{ width: '100%', maxWidth: '440px', textAlign: 'center', padding: '2.5rem 0 0 0' }}>
         <img
           src={zineImg}
           alt="April Fridae Zine"
-          style={{ width: '100%', maxWidth: '320px', display: 'block', margin: '0 auto 1.5rem auto' }}
+          style={{ width: '100%', display: 'block', marginBottom: '1.5rem' }}
           loading="lazy"
           decoding="async"
         />
