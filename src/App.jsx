@@ -33,37 +33,32 @@ export default function App() {
 
       {/* Zine section */}
       <div style={{ width: '100%', maxWidth: '440px', textAlign: 'center', padding: '2.5rem 0 0 0' }}>
-        <img
-          src={zineImg}
-          alt="April Fridae Zine"
-          style={{ width: '100%', display: 'block', marginBottom: '1.5rem' }}
-          loading="lazy"
-          decoding="async"
-        />
         <a
           href="https://forms.gle/mTULuhfHLPMHjNoW8"
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            display: 'inline-block',
-            padding: '0.9rem 3.5rem',
-            background: '#000000',
-            color: '#ffffff',
-            textAlign: 'center',
-            textDecoration: 'none',
-            fontFamily: 'var(--font-heading)',
-            fontSize: '0.85rem',
-            fontWeight: 700,
-            letterSpacing: '0.18em',
+            display: 'block',
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.72rem',
+            fontWeight: 600,
+            letterSpacing: '0.12em',
             textTransform: 'uppercase',
-            borderRadius: '999px',
-            transition: 'background 0.15s ease',
+            color: '#A1A1AA',
+            textDecoration: 'underline',
+            textUnderlineOffset: '3px',
+            marginBottom: '1.25rem',
           }}
-          onMouseEnter={e => e.currentTarget.style.background = '#333'}
-          onMouseLeave={e => e.currentTarget.style.background = '#000'}
         >
           get a free zine
         </a>
+        <img
+          src={zineImg}
+          alt="April Fridae Zine"
+          style={{ width: '100%', display: 'block' }}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
 
       <footer className="app-footer">
