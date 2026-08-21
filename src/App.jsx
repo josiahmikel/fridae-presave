@@ -6,6 +6,7 @@ import Toast from './components/Toast';
 import { SONG_DATA } from './data/songData';
 import stillImg from './assets/still.jpg';
 import stickerImg from './assets/fridae-sticker.jpg';
+import zineImg from './assets/zine.jpg';
 
 export default function App() {
   const [toastMessage, setToastMessage] = useState('');
@@ -13,11 +14,6 @@ export default function App() {
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(''), 3000);
-  };
-
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText('https://now.aprilfridae.com');
-    showToast('Link copied!');
   };
 
   return (
@@ -35,27 +31,40 @@ export default function App() {
         <ServiceList />
       </main>
 
-      <a
-        href="https://forms.gle/mTULuhfHLPMHjNoW8"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: 'block',
-          width: '100%',
-          textAlign: 'center',
-          fontFamily: 'var(--font-body)',
-          fontSize: '0.72rem',
-          fontWeight: 600,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-          color: '#A1A1AA',
-          textDecoration: 'underline',
-          textUnderlineOffset: '3px',
-          padding: '2.5rem 0 1.5rem 0',
-        }}
-      >
-        get a free zine
-      </a>
+      {/* Zine section */}
+      <div style={{ width: '100%', maxWidth: '440px', textAlign: 'center', padding: '2.5rem 1.5rem 0 1.5rem' }}>
+        <img
+          src={zineImg}
+          alt="April Fridae Zine"
+          style={{ width: '100%', maxWidth: '320px', display: 'block', margin: '0 auto 1.5rem auto' }}
+          loading="lazy"
+          decoding="async"
+        />
+        <a
+          href="https://forms.gle/mTULuhfHLPMHjNoW8"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '0.9rem 3.5rem',
+            background: '#000000',
+            color: '#ffffff',
+            textAlign: 'center',
+            textDecoration: 'none',
+            fontFamily: 'var(--font-heading)',
+            fontSize: '0.85rem',
+            fontWeight: 700,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            borderRadius: '999px',
+            transition: 'background 0.15s ease',
+          }}
+          onMouseEnter={e => e.currentTarget.style.background = '#333'}
+          onMouseLeave={e => e.currentTarget.style.background = '#000'}
+        >
+          get a free zine
+        </a>
+      </div>
 
       <footer className="app-footer">
         <img
