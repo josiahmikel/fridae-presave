@@ -275,16 +275,6 @@ html, body {
   gap: 1.75rem;
 }
 
-/* Full-width still image banner matching main card column width */
-.full-width-footer-banner {
-  width: 100%;
-  max-width: 440px;
-  border-radius: 0 !important;
-  border: 1px solid #E4E4E7;
-  object-fit: cover;
-  display: block;
-}
-
 /* Sharp non-rounded sticker image - Flat */
 .footer-sticker-img {
   height: 80px;

@@ -4,7 +4,6 @@ import CountdownTimer from './components/CountdownTimer';
 import ServiceList from './components/ServiceList';
 import Toast from './components/Toast';
 import { SONG_DATA } from './data/songData';
-import stillImg from './assets/still.jpg';
 import stickerImg from './assets/fridae-sticker.jpg';
 import zineImg from './assets/zine.jpg';
 
@@ -52,23 +51,23 @@ export default function App() {
         >
           get a free zine
         </a>
-        <img
-          src={zineImg}
-          alt="April Fridae Zine"
-          style={{ width: '100%', display: 'block' }}
-          loading="lazy"
-          decoding="async"
-        />
+        <br />
+        <a
+          href="https://forms.gle/mTULuhfHLPMHjNoW8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={zineImg}
+            alt="Get a free April Fridae zine"
+            style={{ width: '100%', display: 'block', marginBottom: '2rem' }}
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
       </div>
 
       <footer className="app-footer">
-        <img
-          src={stillImg}
-          alt="April Fridae"
-          className="full-width-footer-banner"
-          loading="lazy"
-          decoding="async"
-        />
         <a
           href="https://instagram.com/aprilfridae"
           target="_blank"

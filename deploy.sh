@@ -11,10 +11,10 @@ touch dist/.nojekyll
 
 echo "→ Copying dist/ contents to root for GitHub Pages..."
 cp -r dist/assets ./assets 2>/dev/null || true
-cp dist/index.html ./index.html.deploy 2>/dev/null || true
+cp dist/index.dev.html ./index.html.deploy 2>/dev/null || true
 
 # Replace root index.html with the built version
-cp dist/index.html ./index.html.built
+cp dist/index.dev.html ./index.html.built
 
 echo "→ Swapping index.html for production build..."
 # Save dev index
